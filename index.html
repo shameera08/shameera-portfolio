@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Shameera Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050816;
+    color:white;
+    transition:0.4s;
+}
+
+/* LIGHT MODE */
+
+body.light{
+    background:#f4f7fb;
+    color:#111827;
+}
+
+body.light nav,
+body.light .hero-card,
+body.light .project-card,
+body.light .cert-card,
+body.light .contact-box,
+body.light .gallery-item,
+body.light .info-box{
+    background:white;
+    color:black;
+}
+
+body.light .project-title p,
+body.light .about-text,
+body.light .contact-box p,
+body.light .info-box{
+    color:#374151;
+}
+
+/* NAVBAR */
+
+nav{
+    width:100%;
+    background:#071126;
+    padding:15px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.nav-left{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.nav-left img{
+    width:60px;
+    height:60px;
+    border-radius:15px;
+    object-fit:cover;
+}
+
+.nav-text h2{
+    font-size:24px;
+}
+
+.nav-text p{
+    color:#94a3b8;
+    font-size:14px;
+}
+
+.nav-right{
+    display:flex;
+    gap:15px;
+    align-items:center;
+}
+
+.toggle-btn{
+    background:#111b34;
+    border:none;
+    color:white;
+    font-size:20px;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.menu{
+    font-size:35px;
+}
+
+/* HERO */
+
+.hero{
+    padding:40px 7%;
+}
+
+.hero-card{
+    background:#091225;
+    border-radius:30px;
+    padding:40px;
+}
+
+.hero-card h1{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.hero-card h1 span{
+    color:#7cf6c8;
+}
+
+.hero-card h3{
+    color:#7cf6c8;
+    margin-bottom:35px;
+    line-height:1.7;
+    font-size:28px;
+}
+
+.info-box{
+    background:#111b34;
+    padding:18px 25px;
+    border-radius:18px;
+    margin-bottom:18px;
+    color:#cbd5e1;
+    font-size:18px;
+}
+
+.info-box a{
+    color:#7cf6c8;
+    text-decoration:none;
+}
+
+.about-text{
+    margin-top:35px;
+    line-height:2;
+    color:#d1d5db;
+    font-size:18px;
+}
+
+/* SECTION */
+
+section{
+    padding:90px 7%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:45px;
+    color:#7cf6c8;
+    margin-bottom:60px;
+}
+
+/* SKILLS */
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:18px;
+}
+
+.skill{
+    background:#111b34;
+    padding:15px 25px;
+    border-radius:40px;
+    border:1px solid #7cf6c8;
+    transition:0.3s;
+}
+
+.skill:hover{
+    background:#7cf6c8;
+    color:black;
+}
+
+/* PROJECT CARD */
+
+.project-card{
+    background:#091225;
+    padding:35px;
+    border-radius:30px;
+    margin-bottom:60px;
+}
+
+.project-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.project-title h2{
+    color:#7cf6c8;
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.project-title p{
+    color:#cbd5e1;
+    line-height:1.9;
+    font-size:18px;
+}
+
+/* GALLERY */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.gallery-item{
+    background:#111b34;
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.4s;
+    border:2px solid transparent;
+}
+
+.gallery-item:hover{
+    transform:translateY(-10px);
+    border-color:#7cf6c8;
+}
+
+.gallery-item img{
+    width:100%;
+    height:550px;
+    object-fit:cover;
+}
+
+.gallery-item h3{
+    text-align:center;
+    padding:18px;
+}
+
+/* VIDEO */
+
+.video-box{
+    margin-top:45px;
+    text-align:center;
+}
+
+.video-box h3{
+    color:#7cf6c8;
+    margin-bottom:20px;
+    font-size:30px;
+}
+
+video{
+    width:100%;
+    max-width:950px;
+    border-radius:25px;
+    border:3px solid #7cf6c8;
+}
+
+/* CERTIFICATES */
+
+.certificates{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.cert-card{
+    background:#091225;
+    padding:25px;
+    border-radius:25px;
+    text-align:center;
+}
+
+.cert-card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+    border-radius:18px;
+    margin-bottom:20px;
+}
+
+.cert-card h3{
+    color:#7cf6c8;
+}
+
+/* CONTACT */
+
+.contact-box{
+    background:#091225;
+    padding:35px;
+    border-radius:25px;
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+}
+
+.contact-box p{
+    margin:15px 0;
+    color:#d1d5db;
+    font-size:18px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#071126;
+    text-align:center;
+    padding:25px;
+    color:#94a3b8;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero-card h1{
+    font-size:38px;
+}
+
+.hero-card h3{
+    font-size:22px;
+}
+
+.gallery-item img{
+    height:430px;
+}
+
+.section-title{
+    font-size:35px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="nav-left">
+
+<img src="photo.jpg" alt="">
+
+<div class="nav-text">
+<h2>Shameera Gurusheed Z</h2>
+<p>UI/UX Designer • Frontend Developer</p>
+</div>
+
+</div>
+
+<div class="nav-right">
+
+<button class="toggle-btn" onclick="toggleMode()">🌙</button>
+
+<div class="menu">☰</div>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-card">
+
+<h1>Shameera <span>Gurusheed Z</span></h1>
+
+<h3>
+UI/UX Designer | Frontend Developer | AI Enthusiast
+</h3>
+
+<div class="info-box">
+📧 shameerazafer@gmail.com
+</div>
+
+<div class="info-box">
+📱 +91 8072772884
+</div>
+
+<div class="info-box">
+📍 Karur, Tamil Nadu, India 639114
+</div>
+
+<div class="info-box">
+🎓 B.Tech Computer Science Engineering
+</div>
+
+<div class="info-box">
+🌍 Languages : Tamil, English, Arabic (Reading Only)
+</div>
+
+<div class="info-box">
+💻 GitHub :
+<a href="https://github.com/shameera08/MY-UI-UX-DESIGN-PAGE.git" target="_blank">
+Visit GitHub Profile
+</a>
+</div>
+
+<div class="info-box">
+🔗 LinkedIn :
+<a href="https://www.linkedin.com/in/shameera-zafer-58a629291" target="_blank">
+Visit LinkedIn Profile
+</a>
+</div>
+
+<p class="about-text">
+
+Creative and detail-oriented Computer Science Engineering student passionate about 
+UI/UX Design, Frontend Development, Artificial Intelligence and modern web technologies.
+
+Focused on building responsive and visually attractive digital experiences using modern UI trends,
+clean layouts and interactive user interfaces. Skilled in HTML, CSS, JavaScript, Figma and frontend development.
+
+Passionate about creating beautiful mobile application UI designs, responsive websites,
+travel apps, AI-based systems and interactive digital products.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section>
+
+<h1 class="section-title">Technical Skills</h1>
+
+<div class="skills">
+
+<div class="skill">HTML5</div>
+<div class="skill">CSS3</div>
+<div class="skill">JavaScript</div>
+<div class="skill">UI/UX Design</div>
+<div class="skill">Frontend Development</div>
+<div class="skill">Responsive Design</div>
+<div class="skill">Node.js</div>
+<div class="skill">GitHub</div>
+<div class="skill">Figma</div>
+<div class="skill">AI Tools</div>
+<div class="skill">Prompt Engineering</div>
+
+</div>
+
+</section>
+
+<!-- EDUCATION -->
+
+<section>
+
+<h1 class="section-title">Education</h1>
+
+<div class="project-card">
+
+<div style="text-align:center;margin-bottom:30px;">
+
+<img src="chettinad.png"
+style="
+width:130px;
+height:130px;
+object-fit:cover;
+border-radius:25px;
+border:3px solid #7cf6c8;
+padding:10px;
+background:white;
+">
+
+</div>
+
+<div class="project-title">
+
+<h2>Chettinad College of Engineering and Technology</h2>
+
+<p>
+Bachelor of Technology in Computer Science and Engineering
+</p>
+
+<p>
+Currently Pursuing 4th Semester with CGPA : 8.15 (2025)
+</p>
+
+<p>
+Focused on UI/UX Design, Frontend Development,
+Artificial Intelligence and Web Technologies.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- INTERNSHIP -->
+
+<section>
+
+<h1 class="section-title">Internship Experience</h1>
+
+<div class="project-card">
+
+<div class="project-title">
+
+<h2>IBM Naan Mudhalvan Internship</h2>
+
+<p>
+
+Completed internship focused on NodeJS and REST API development.
+Gained practical knowledge in backend development, API integration,
+server-side programming and real-world web application concepts.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section>
+
+<h1 class="section-title">Projects</h1>
+
+<!-- RESCUE AI -->
+
+<div class="project-card">
+
+<div class="project-title">
+
+<h2>RESCUE.AI – Smart Disaster Safety Platform</h2>
+
+<p>
+Smart disaster evacuation and emergency response platform with emergency alerts,
+live tracking, dashboard monitoring and disaster reporting system.
+</p>
+
+</div>
+
+<div class="gallery">
+
+<div class="gallery-item">
+<img src="rescue.png" alt="">
+<h3>Emergency Alert Screen</h3>
+</div>
+
+<div class="gallery-item">
+<img src="dashboard.png" alt="">
+<h3>Dashboard Interface</h3>
+</div>
+
+<div class="gallery-item">
+<img src="map.png" alt="">
+<h3>Live Map Tracking</h3>
+</div>
+
+</div>
+
+</div>
+
+<!-- TRAVEL APP -->
+
+<div class="project-card">
+
+<div class="project-title">
+
+<h2>Travel App UI Design</h2>
+
+<p>
+Modern tourism mobile application UI designed using Figma with explore pages,
+booking screens, destination details and responsive travel experience.
+</p>
+
+</div>
+
+<div class="gallery">
+
+<div class="gallery-item">
+<img src="explore.png" alt="">
+<h3>Explore Screen</h3>
+</div>
+
+<div class="gallery-item">
+<img src="about.png" alt="">
+<h3>About Destination</h3>
+</div>
+
+<div class="gallery-item">
+<img src="details.png" alt="">
+<h3>Travel Details</h3>
+</div>
+
+<div class="gallery-item">
+<img src="booking.png" alt="">
+<h3>Booking Interface</h3>
+</div>
+
+</div>
+
+<div class="video-box">
+
+<h3>Travel App Demo Video</h3>
+
+<video controls autoplay muted>
+<source src="portfolio-video.mp4" type="video/mp4">
+</video>
+
+</div>
+
+</div>
+
+<!-- GLOW APP -->
+
+<div class="project-card">
+
+<div class="project-title">
+
+<h2>Glow Beauty App UI Design</h2>
+
+<p>
+Modern skincare and beauty mobile application UI with elegant pastel design,
+beauty product pages and smooth user experience.
+</p>
+
+</div>
+
+<div class="gallery">
+
+<div class="gallery-item">
+<img src="glow.png" alt="">
+<h3>Glow Beauty Home UI</h3>
+</div>
+
+<div class="gallery-item">
+<img src="page.png" alt="">
+<h3>Beauty Product Page</h3>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CERTIFICATES -->
+
+<section>
+
+<h1 class="section-title">Certificates & Workshops</h1>
+
+<div class="certificates">
+
+<div class="cert-card">
+
+<img src="internship-certificate.jpg" alt="">
+
+<h3>IBM Internship Certificate</h3>
+
+<p>
+NodeJS and REST API Internship Completion Certificate.
+</p>
+
+</div>
+
+<div class="cert-card">
+
+<img src="n8n-certificate.jpg" alt="">
+
+<h3>N8N Automation Workshop</h3>
+
+<p>
+Automation workshop participation certificate.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SOFT SKILLS -->
+
+<section>
+
+<h1 class="section-title">Soft Skills</h1>
+
+<div class="skills">
+
+<div class="skill">Communication</div>
+<div class="skill">Problem Solving</div>
+<div class="skill">Creativity</div>
+<div class="skill">Team Collaboration</div>
+<div class="skill">Visual Thinking</div>
+<div class="skill">Adaptability</div>
+<div class="skill">Quick Learning</div>
+<div class="skill">Time Management</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section>
+
+<h1 class="section-title">Let's Build Something Amazing Together 🚀</h1>
+
+<div class="contact-box">
+
+<p>
+I’m passionate about creating beautiful UI/UX experiences,
+modern frontend interfaces and creative digital products.
+Let’s connect and build innovative projects together.
+</p>
+
+<br>
+
+<p><strong>👩‍💻 Name :</strong> Shameera Gurusheed Z</p>
+
+<p><strong>📧 Email :</strong> shameerazafer@gmail.com</p>
+
+<p><strong>📱 Contact :</strong> +91 8072772884</p>
+
+<p><strong>📍 Location :</strong> Karur, Tamil Nadu, India</p>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+© 2026 Shameera Portfolio | Designed By Shameera
+</footer>
+
+<script>
+
+/* TOGGLE */
+
+function toggleMode(){
+document.body.classList.toggle("light");
+}
+
+/* ANIMATION */
+
+const cards = document.querySelectorAll('.gallery-item,.cert-card,.skill,.project-card');
+
+window.addEventListener('scroll', reveal);
+
+function reveal(){
+
+cards.forEach(card=>{
+
+const windowHeight = window.innerHeight;
+const cardTop = card.getBoundingClientRect().top;
+const revealPoint = 100;
+
+if(cardTop < windowHeight - revealPoint){
+
+card.style.opacity = "1";
+card.style.transform = "translateY(0px)";
+
+}
+
+});
+
+}
+
+cards.forEach(card=>{
+
+card.style.opacity = "0";
+card.style.transform = "translateY(50px)";
+card.style.transition = "0.7s";
+
+});
+
+</script>
+
+</body>
+</html>
